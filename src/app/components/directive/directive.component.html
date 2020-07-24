@@ -1,0 +1,52 @@
+<div class="khung">
+    <p class="title">Directive: *ngIf</p>
+    <div style="padding:10px">
+        <p>Type your age:</p>
+        <input type="text" [(ngModel)]="Age">
+        <p *ngIf="Age>=18;else IfChild">Adult</p>
+        <ng-template #IfChild>
+            <p>Child</p>
+        </ng-template>
+    </div>
+</div>
+
+<div class="khung">
+    <p class="title">Directive: *ngFor</p>
+    <div style="padding:10px">
+        <ul>
+            <li
+            *ngFor="let item of ListName
+            let o=odd
+            "
+            [style.background]="(o==true)? 'blue':'red'">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="khung">
+    <p class="title">Directive: ngSwitch</p>
+    <div style="padding:10px">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let item of ListProduct">
+                <td>
+                    {{item.id}}
+                </td>
+                <td>
+                    {{item.name}}
+                </td>
+                <td [ngSwitch]="item.action">
+                    <p *ngSwitchCase="'drink'" class="drinkColor">{{item.action}}</p>
+                    <p *ngSwitchCase="'eat'" class="eatColor">{{item.action}}</p>
+                    <p *ngSwitchDefault class="nothingColor">{{item.action}}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="khung">
+    <p class="title">Pipe</p>
+    <div style="padding:10px">
+        <input type="text" name="textbox" id="textbox" [(ngModel)]="ValueInput">
+        <select (change)="changePipe($event)">
+            <option value="1">UpperCase</option>
+            <option value="2">LowerCase</option>
+            <option value="3">Date</option>
+            <option value="4">Currency</option>
+        </select>
+        <p [ngSwitch]="PipeID">
+            <ng-container *ngSwitchCase="1">
+                {{ValueInput|uppercase}}
+            </ng-container>
+            <ng-container *ngSwitchCase="2">
+                {{ValueInput|lowercase}}
+            </ng-container>
+            <ng-container *ngSwitchCase="3">
+                {{ValueInput|date}}
+            </ng-container>
+            <ng-container *ngSwitchCase="4">
+                {{ValueInput| currency:'VND'}}
+            </ng-container>
+        </p>
+    </div>
+</div>

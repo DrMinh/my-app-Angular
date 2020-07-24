@@ -1,0 +1,10 @@
+.khung{
+    border: 1px blue solid;
+    margin:1%;
+}
+.title{
+    padding:10px;
+    color: white;
+    background: green;
+    margin: 0px;
+}
